@@ -1,0 +1,10 @@
+backend/venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.DS_Store
+node_modules/
+build/
+.dart_tool/
+.idea/

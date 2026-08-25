@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "expo": "~51.0.0",
+    "expo-camera": "~15.0.0",
+    "expo-speech": "~13.0.0",
+    "react-native-paper": "5.12.5",
+    "@react-navigation/native": "^6.1.0",
+    "axios": "^1.7.0",
+    "react-native-picker-select": "^9.0.0",
+    "i18n-js": "^4.4.0"
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation</title>
+</head>
+<body>
+
+<h2>🌱 Crop Recommendation System</h2>
+
+<input id="N" placeholder="Nitrogen"><br><br>
+<input id="P" placeholder="Phosphorus"><br><br>
+<input id="K" placeholder="Potassium"><br><br>
+<input id="temperature" placeholder="Temperature"><br><br>
+<input id="humidity" placeholder="Humidity"><br><br>
+<input id="ph" placeholder="pH"><br><br>
+<input id="rainfall" placeholder="Rainfall"><br><br>
+
+<button onclick="predict()">Predict Crop</button>
+
+<h3 id="result"></h3>
+
+<script>
+function predict() {
+    const data = {
+        N: parseFloat(document.getElementById("N").value),
+        P: parseFloat(document.getElementById("P").value),
+        K: parseFloat(document.getElementById("K").value),
+        temperature: parseFloat(document.getElementById("temperature").value),
+        humidity: parseFloat(document.getElementById("humidity").value),
+        ph: parseFloat(document.getElementById("ph").value),
+        rainfall: parseFloat(document.getElementById("rainfall").value)
+    };
+
+    fetch("http://127.0.0.1:5000/recommend_crop", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+        document.getElementById("result").innerText =
+            "Best Crop: " + result.best_crop +
+            " | Fertilizer: " + result.recommended_fertilizer;
+    });
+}
+</script>
+
+</body>
+</html>
